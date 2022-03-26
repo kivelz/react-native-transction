@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
-import axios from 'axios';
+import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
+import Notification from '../app/view/screen/NotificationScreen'
 
 import customerData from  './data.json'
 
@@ -9,6 +10,9 @@ const TransactionData = props => {
   const [isLoading, setLoading] = useState(false);
   const [transaction, setTransaction] = useState(null);
   const [getError, setError] = useState(null);
+  const [isModalVisible, setModalVisible] = useState(false);
+
+
   const getData = () => {
     console.log('what',customerData)
     setLoading(true);
@@ -28,30 +32,27 @@ const TransactionData = props => {
       setLoading(true);
       getData();
   }, []);
-  console.log('isloading', isLoading);
-  console.log('transaction', transaction);
 
-const renderItem = ({ item, index }) => {
-    return (
-      <View key={index} style={{flex: 1}}>
-       
-      </View>
-    )
+  const toggleModaL = () => {
+    setModalVisible(!isModalVisible);
   }
+
   return(
-      <View style={{ flex:1, justifyContent:'center', alignItems:'center', alignSelf:'center', backgroundColor:'yellow'}}>
+    <View>
+<View>
           {isLoading ? <Text>Loading...</Text> :
           (
-            <View style={{}}> 
-               <FlatList
-                  data={transaction}
-                  keyExtractor={({ id }) => id.toString()}
-                  renderItem={({ item }) => renderItem({item})}
-                 
-              />
-            </View>
-             
+            <View style={{paddingVertical: 20}}> 
+            {customerData.transactions.map((item, index) => (
+              <TouchableOpacity style={{marginVertical: 5}} onPress={() => toggleModaL()}>
+                       <Text style={{color:'#0000EE', fontSize:16}}>Transaction {item.id}</Text>
+              </TouchableOpacity>       
+            ))}
+            </View>       
           )}
+    </View>
+      
+          <Notification isVisible={isModalVisible}/>
       </View>
   );
 };

@@ -12,26 +12,26 @@ const Tab = createBottomTabNavigator();
 
 const Tabs = () => {
     return (
-        <Tab.Navigator
+     <Tab.Navigator
         screenOptions={{
             showLabel:false,
             style:{},
         }}
         >
-            <Tab.Screen name="Home" component={HomeScreen}  options={{
+       <Tab.Screen name="Home" component={HomeScreen}  options={{
           tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home" color={color} size={26} />
           ),
         }} />
             <Tab.Screen name="Buy" component={BuyScreen} options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Buy',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="shopping-outline" color={color} size={26} />
           ),
         }}  />
             <Tab.Screen name="Transaction" component={TransactionScreen} options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Transaction',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="cards-outline" color={color} size={26} options={{
                 tabBarLabel: 'Home',  
@@ -39,7 +39,7 @@ const Tabs = () => {
           ),
         }} />
             <Tab.Screen name="Profile" component={ProfileScreen} options={{
-          tabBarLabel: 'Home',
+          tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="human-male" color={color} size={26} />
           ),
