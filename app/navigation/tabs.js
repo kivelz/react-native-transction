@@ -9,6 +9,7 @@ import { NavigationContainer } from "@react-navigation/native"
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import TransactionDetailScreen from "../view/screen/TransactionDetailScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -17,13 +18,14 @@ function HomeStack() {
   return (
     <Stack.Navigator>
       <Tab.Screen name="Home" component={HomeScreen} />
+    
     </Stack.Navigator>
   );
 }
 function PaymentStack() {
   return (
     <Stack.Navigator>
-      <Tab.Screen name="Payment" component={BuyScreen} />
+      <Tab.Screen name="Buy" component={BuyScreen} />
     </Stack.Navigator>
   );
 }
@@ -31,7 +33,7 @@ function ProfileStack() {
   return (
     <Stack.Navigator>
       <Tab.Screen name="Profile" component={ProfileScreen} />
-      <Tab.Screen name="Buy" component={NotificationScreen} />
+      {/* <Tab.Screen name="Notification" component={NotificationScreen} /> */}
     </Stack.Navigator>
   );
 }
@@ -39,27 +41,27 @@ function TransactionStack() {
   return (
     <Stack.Navigator>
       <Tab.Screen name="Transaction" component={TransactionScreen} />
-      <Tab.Screen name="Buy" component={NotificationScreen} />
+     
     </Stack.Navigator>
   );
 }
-function BottomBarNavigation() {
+function AppNavigation() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator screenOptions={{headerShown: false,gestureEnabled: true}}>
       <Tab.Screen name="Home" component={HomeStack}   options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home-outline" color={color} size={26} />
           ),
         }} />
-      <Tab.Screen name="Buy" component={PaymentStack}   options={{
-          tabBarLabel: 'Profile',
+      <Tab.Screen name="Buy" component={PaymentStack}   screenOptions={{headerShown: false}} options={{
+          tabBarLabel: 'Buy',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="shopping-outline" color={color} size={26} />
           ),
         }} />
       <Tab.Screen name="Transaction" component={TransactionStack}   options={{
-          tabBarLabel: 'Profile',
+          tabBarLabel: 'Transaction',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="cards-outline" color={color} size={26} />
           ),
@@ -76,17 +78,25 @@ function BottomBarNavigation() {
 
 function App() {
   return (
-    <NavigationContainer>
+
       <Stack.Navigator>
         <Stack.Screen
           name="Explore"
-          component={BottomBarNavigation}
-          options={{ headerShown: false }}
+          component={AppNavigation}
+          options={{ headerShown: false}}
         />
-        {/* <Stack.Screen name="Profiless" component={Pay} />
-        <Stack.Screen name="Settings" component={TransactionScreen} /> */}
+        <Stack.Screen
+          name="Notification"
+          component={NotificationScreen}
+          options={{ headerShown: true }}
+        />
+          <Stack.Screen
+          name="DetailPage"
+          component={TransactionDetailScreen}
+          options={{ headerShown: true, headerTitle:'' }}
+        />
       </Stack.Navigator>
-    </NavigationContainer>
+  
   );
 }
 

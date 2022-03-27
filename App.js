@@ -4,8 +4,9 @@ import Tabs from './app/navigation/tabs';
 
 const App = () => {
   return (
- 
+    <NavigationContainer>
     <Tabs/>
+    </NavigationContainer>
 
   )
  

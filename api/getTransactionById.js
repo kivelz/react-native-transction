@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
-import { NavigationContainer, useNavigationContainerRef } from '@react-navigation/native';
-import Notification from '../app/view/screen/NotificationScreen'
+import { View, Text, TouchableOpacity } from 'react-native';
 
 import customerData from  './data.json'
 
 
-const TransactionData = props => {
+const TransactionDataById = props => {
   const [isLoading, setLoading] = useState(false);
   const [transaction, setTransaction] = useState(null);
   const [getError, setError] = useState(null);
-  const [isModalVisible, setModalVisible] = useState(false);
 
 
   const getData = () => {
@@ -33,27 +30,28 @@ const TransactionData = props => {
       getData();
   }, []);
 
-  const toggleModaL = () => {
-    setModalVisible(!isModalVisible);
+  const toggleNavigation = (id) => {
+    props.navigation.navigate("DetailPage", id={id})
   }
-
+console.log('route ', props)
   return(
     <View>
-<View>
+              <View>
           {isLoading ? <Text>Loading...</Text> :
           (
             <View style={{paddingVertical: 20}}> 
-            {customerData.transactions.map((item, index) => (
-              <TouchableOpacity style={{marginVertical: 5}} onPress={() => toggleModaL()}>
-                       <Text style={{color:'#0000EE', fontSize:16}}>Transaction {item.id}</Text>
-              </TouchableOpacity>       
-            ))}
+            {customerData.transactions.find((item) => {
+                if(item.id == props.route.params.id) {
+                  console.log('o yea')
+                  return item;
+                }
+            })}
+          
             </View>       
           )}
     </View>
-      
-          <Notification isVisible={isModalVisible}/>
       </View>
   );
 };
-export default TransactionData;
+export default TransactionDataById;
+
