@@ -13,7 +13,7 @@ export class ProfileScreen extends Component {
     return (
       <View style={{flex: 1, alignItems:'center', flexGrow: 1, justifyContent:'center'}}>
       <Text style={{fontSize: 18}}>Profile Screen</Text> 
-      <Text style={[CustomStyles.hyperLinks]} onPress={() => this._navigateToNofication()}>Notification Screen</Text>
+      <Text style={[CustomStyles.hyperLinks]} onPress={() => this._navigateToNofication()}>Go to Notification Screen</Text>
     </View>
     )
   }

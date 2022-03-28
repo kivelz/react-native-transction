@@ -48,25 +48,25 @@ function TransactionStack() {
 function AppNavigation() {
   return (
     <Tab.Navigator screenOptions={{headerShown: false,gestureEnabled: true}}>
-      <Tab.Screen name="Home" component={HomeStack}   options={{
-          tabBarLabel: 'Profile',
+      <Tab.Screen name="HomeStack" component={HomeStack}   options={{
+          tabBarLabel: 'Home',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="home-outline" color={color} size={26} />
           ),
         }} />
-      <Tab.Screen name="Buy" component={PaymentStack}   screenOptions={{headerShown: false}} options={{
+      <Tab.Screen name="BuyStack" component={PaymentStack}   screenOptions={{headerShown: false}} options={{
           tabBarLabel: 'Buy',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="shopping-outline" color={color} size={26} />
           ),
         }} />
-      <Tab.Screen name="Transaction" component={TransactionStack}   options={{
+      <Tab.Screen name="TransactionStack" component={TransactionStack}   options={{
           tabBarLabel: 'Transaction',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="cards-outline" color={color} size={26} />
           ),
         }} />
-      <Tab.Screen name="Profile" component={ProfileStack}  options={{
+      <Tab.Screen name="ProfileStack" component={ProfileStack}  options={{
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="human-male" color={color} size={26} />
@@ -83,12 +83,12 @@ function App() {
         <Stack.Screen
           name="Explore"
           component={AppNavigation}
-          options={{ headerShown: false}}
+          options={{ headerShown: false , headerTitle:''}}
         />
         <Stack.Screen
           name="Notification"
           component={NotificationScreen}
-          options={{ headerShown: true }}
+          options={{ headerShown: true , headerTitle:''}}
         />
           <Stack.Screen
           name="DetailPage"

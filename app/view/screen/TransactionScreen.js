@@ -11,7 +11,7 @@ export class TransactionScreen extends Component {
       <View style={{flex: 1, alignItems:'center',  justifyContent:'center',}}>
       <Text style={{fontSize: 18}}>Transaction Screen</Text> 
       
-       <TransactionData navigation={this.props.navigation}/>
+       <TransactionData navigation={this.props.navigation} pageParams={'Transaction'}/>
       
     </View>
     )
