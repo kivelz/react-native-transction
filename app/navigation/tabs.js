@@ -37,6 +37,14 @@ function ProfileStack() {
     </Stack.Navigator>
   );
 }
+function NotificationStack() {
+  return (
+    <Stack.Navigator>
+      <Tab.Screen name="Notification" component={NotificationScreen} />
+      {/* <Tab.Screen name="Notification" component={NotificationScreen} /> */}
+    </Stack.Navigator>
+  );
+}
 function TransactionStack() {
   return (
     <Stack.Navigator>
@@ -70,6 +78,12 @@ function AppNavigation() {
           tabBarLabel: 'Profile',
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="human-male" color={color} size={26} />
+          ),
+        }} />
+            <Tab.Screen name="NotificationStack" component={NotificationStack}  options={{
+          tabBarLabel: 'Notification',
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="bell-outline" color={color} size={26} />
           ),
         }} />
     </Tab.Navigator>
