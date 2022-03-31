@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import axios from 'axios';
 import { ActivityIndicator } from 'react-native-paper';
 
@@ -7,6 +7,7 @@ import { ActivityIndicator } from 'react-native-paper';
 const TransactionData = props => {
   const [isLoading, setLoading] = useState(false);
   const [transaction, setTransaction] = useState([]);
+  const [error, setError] = useState(null)
  
   const getData = () => { 
     setLoading(true)
@@ -22,7 +23,7 @@ const TransactionData = props => {
     .catch(function (error) {
       // handle error
       setLoading(false)
-      console.log(error.message)
+      setError(error)
       alert(error.message);
     })
 };
@@ -34,7 +35,6 @@ const TransactionData = props => {
   const navigateToDetailScreen = (id) => {
     props.navigation.navigate("DetailPage", {id: id})
   }
-  console.log('alltransaction', transaction)
   return(
     <View>
         <View>
@@ -50,9 +50,11 @@ const TransactionData = props => {
             {isLoading && (
               <ActivityIndicator/>
             )}
-            </View>       
-        
-    </View>
+            {error != null && (
+              <Text>{error}</Text>
+            )}
+            </View>          
+        </View>
       </View>
   );
 };

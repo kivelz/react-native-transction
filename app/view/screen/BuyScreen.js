@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native'
 import React, { Component } from 'react'
-import TransactionData from '../../../api/getTransaction.js'
+
 
 export class BuyScreen extends Component {
   render() {

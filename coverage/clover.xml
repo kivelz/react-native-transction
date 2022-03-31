@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1648730452394" clover="3.2.0">
+  <project timestamp="1648730452395" name="All files">
+    <metrics statements="27" coveredstatements="18" conditionals="88" coveredconditionals="31" methods="19" coveredmethods="9" elements="134" coveredelements="58" complexity="0" loc="27" ncloc="27" packages="1" files="1" classes="1"/>
+    <file name="getTransaction.js" path="/Users/kelvintay/Downloads/react-native-transction-master/api/getTransaction.js">
+      <metrics statements="27" coveredstatements="18" conditionals="88" coveredconditionals="31" methods="19" coveredmethods="9"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="28" type="cond" truecount="28" falsecount="52"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="8" count="2" type="stmt"/>
+      <line num="9" count="2" type="stmt"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="13" count="1" type="stmt"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="15" count="1" type="stmt"/>
+      <line num="19" count="0" type="stmt"/>
+      <line num="20" count="0" type="stmt"/>
+      <line num="21" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="25" count="0" type="stmt"/>
+      <line num="26" count="0" type="stmt"/>
+      <line num="27" count="0" type="stmt"/>
+      <line num="30" count="2" type="stmt"/>
+      <line num="31" count="1" type="stmt"/>
+      <line num="32" count="1" type="stmt"/>
+      <line num="35" count="2" type="stmt"/>
+      <line num="36" count="0" type="stmt"/>
+      <line num="38" count="2" type="stmt"/>
+      <line num="42" count="0" type="stmt"/>
+      <line num="43" count="0" type="stmt"/>
+      <line num="61" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

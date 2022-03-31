@@ -1,0 +1,35 @@
+{
+    "preset": "react-native",
+    "collectCoverage": true,
+    "coverageDirectory" : "coverage",
+  "testEnvironment": "jsdom",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/react-native/jest/preprocessor.js"
+    },
+    "setupFiles": [
+      "<rootDir>/__test__/setup.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!@react-native|react-native)"
+      ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/",
+      "/jest"
+    ],
+  
+      "coverageThreshold": {
+        "global": {
+          "branches": 80
+        }  
+      },
+  
+    "roots": [
+        "./__test__"
+    ]
+  
+  }
+  
